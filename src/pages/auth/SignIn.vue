@@ -62,7 +62,8 @@ export default {
   data() {
     return {
       email: "",
-      pass: ""
+      pass: "",
+      name: ""
     }
   },
   computed: {

@@ -15,7 +15,7 @@ const store = new Vuex.Store({
     },
     strict: debug,
     plugins: [createPersist({
-        namespace: 'cognito-vue-bootstrap',
+        namespace: 'tesseractlabs',
         initialState: {},
         // ONE_WEEK
         expires: 7 * 24 * 60 * 60 * 1e3

@@ -5,15 +5,14 @@
         <div class="b-form-1">
           <h2>Confirm Sign Up</h2>
           <b-form-group
-            label="Username:"
-            label-for="usernameInput">
+            label="Email:"
+            label-for="emailInput">
             <b-form-input 
-              id="usernameInput"
-              type="text"
-              v-model="username"
+              id="emailInput"
+              type="email"
+              v-model="email"
               required
-              autofocus
-              placeholder="Enter username"/>
+              placeholder="Enter email"/>
           </b-form-group>
           <b-form-group
             label="Code:"
@@ -67,7 +66,7 @@ export default {
   methods: {
     async confirmSignUp() {
       await store.dispatch("auth/confirmSignUp", {
-        username: this.username,
+        username: this.email,
         code: this.code
       })
       if (!this.hasAuthenticationStatus) {

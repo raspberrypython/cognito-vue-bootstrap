@@ -1,8 +1,13 @@
 <template>
   <b-container>
     <div class="b-main-content">
-      <h2>Cognito Bootstrap Vue</h2>
-      <p>You are logged in as {{ user.username }}.</p>
+      <h2>Account Page</h2>
+      <h6>Account: {{ user.username }}</h6>
+      <p>
+        <b-button 
+          variant="outline-dark" 
+          to="/signOut">Sign Out</b-button>
+      </p> 
     </div>
   </b-container> 
 </template>

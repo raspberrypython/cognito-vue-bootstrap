@@ -7,14 +7,14 @@
           <p>Sign up for an account.</p>
           <b-form @submit.prevent="signUp">
             <b-form-group
-              label="Username:"
-              label-for="usernameInput">
+              label="Email:"
+              label-for="emailInput">
               <b-form-input 
-                id="usernameInput"
-                type="text"
-                v-model="username"
+                id="emailInput"
+                type="email"
+                v-model="email"
                 required
-                placeholder="Enter username"/>
+                placeholder="Enter email"/>
             </b-form-group>
             <b-form-group
               label="Name:"
@@ -25,16 +25,6 @@
                 v-model="name"
                 required
                 placeholder="Enter your full name"/>
-            </b-form-group>
-            <b-form-group
-              label="Email:"
-              label-for="emailInput">
-              <b-form-input 
-                id="emailInput"
-                type="email"
-                v-model="email"
-                required
-                placeholder="Enter email"/>
             </b-form-group>
             <b-form-group
               label="Password:"
@@ -94,11 +84,11 @@ export default {
     async signUp() {
       logger.debug("sign-up")
       await this.$store.dispatch("auth/signUp", {
-        username: this.username,
+        username: this.email,
         password: this.pass,
         attributes: {
           name: this.name,
-          email: this.email
+          email: this.email,
         }
       })
 

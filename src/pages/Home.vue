@@ -1,34 +1,77 @@
 <template>
-  <b-container>
-    <div class="b-main-content">
-      <h2>Cognito Bootstrap Vue</h2>
-      <p>This site provides an example of how to use <b-link href="https://aws.amazon.com/cognito">Amazon Cognito</b-link> with <b-link href="https://vuejs.org">Vue.js</b-link></p>
-      <p>To give it a try:</p>
-      <ol>
-        <li>Sign up using your email address, this will send through an activation code.</li>
-        <li>Once you get the activation code enter it with your email address.</li>
-        <li>Sign in with your credentials.</li>
-        <li>Request a password reset to recover an account.</li>
-        <li>Change your password.</li>
-      </ol>
+  <div>
+    <div class="b-title-content">
+      <img
+        class="title"
+        src="@/assets/img/title.png">
+    </div>
+    <div class="b-login-content">
       <p>
         <b-button 
           variant="outline-dark" 
-          to="signUp">Sign Up</b-button>
+          to="/signUp">Sign Up</b-button>
+        <b-button 
+          variant="outline-dark" 
+          to="/signIn">Sign In</b-button>
       </p> 
-      <p>
-        The full source code for this example application is available here:
-      </p> 
-      <ul>
-        <li><b-link href="https://github.com/wolfeidau/cognito-vue-bootstrap">https://github.com/wolfeidau/cognito-vue-bootstrap</b-link></li>
-      </ul> 
     </div>
-  </b-container>
+    <div class="b-intro-content">
+      <img
+        class="intro"
+        src="@/assets/img/intro.png">
+    </div>
+    <div class="b-product-content">
+      <img
+        class="product"
+        src="@/assets/img/product.png">
+    </div>
+    <div class="b-about-content">
+      <img
+        class="about"
+        src="@/assets/img/about.png">
+    </div>
+    <div class="b-contact-content">
+      <img
+        class="contact"
+        src="@/assets/img/contact.png">
+    </div>
+  </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-    
+    name: 'Navbar',
+    computed: {
+        ...mapState({
+            user: state => state.auth.user,
+            isAuthenticated: state => state.auth.isAuthenticated,
+        })
+    },
+    methods: {
+        signIn() {
+            this.$store.dispatch('signIn')
+        }
+    }
 }
 </script>
 
+<style scoped>
+img.title, img.intro, img.product, img.about, img.contact {
+  width: 100%;
+  height: auto;
+}
+
+div.b-login-content {
+  height: 100px;
+}
+
+div.b-login-content p {
+  text-align:center;
+}
+
+div.b-login-content p a{
+  margin-right: 2.5em;
+  margin-left: 2.5em;
+}
+</style>
