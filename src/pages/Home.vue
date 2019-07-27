@@ -8,11 +8,17 @@
     <div class="b-login-content">
       <p>
         <b-button 
+          v-if="!isAuthenticated" 
           variant="outline-dark" 
           to="/signUp">Sign Up</b-button>
         <b-button 
+          v-if="!isAuthenticated" 
           variant="outline-dark" 
           to="/signIn">Sign In</b-button>
+        <b-button 
+          v-if="isAuthenticated" 
+          variant="outline-dark" 
+          to="/dashboard">My Dashboard</b-button>
       </p> 
     </div>
     <div class="b-intro-content">

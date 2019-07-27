@@ -71,8 +71,8 @@ router.beforeEach((to, from, next) => {
         // otherwise are we already authenticated?
         if (store.getters['auth/isAuthenticated']) {
             // yes we are, so off to dashboard
-            router.push({ name: 'dashboard' })
-            return
+            //router.push({ name: 'dashboard' })
+            //return
         }
         next() // route normally
         return
